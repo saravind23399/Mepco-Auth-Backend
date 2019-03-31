@@ -8,20 +8,18 @@ const PORT = 3000 | process.env.PORT
 
 const app = express()
 app.use(cors())
-app.use(bodyparser.json())
-app.use(bodyparser.urlencoded({ extended: true }))
+app.use(bodyparser.json({limit: '50mb', extended: true}))
+app.use(bodyparser.urlencoded({ limit:'50mb', extended: true }))
 
 const facultyRoute = require('./routes/faculty')
 app.use('/faculty', facultyRoute)
 
 app.get('/ping', (req, res) => {
-    console.log('Pinged')
     res.json({
         success: true,
         message: 'Server Online'
     })
 })
-
 
 app.listen(PORT, (err) => {
     if (err) {
