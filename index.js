@@ -14,6 +14,9 @@ app.use(bodyparser.urlencoded({ limit:'50mb', extended: true }))
 const facultyRoute = require('./routes/faculty')
 app.use('/faculty', facultyRoute)
 
+const adminRoute = require('./routes/admin')
+app.use('/admin', adminRoute)
+
 app.get('/ping', (req, res) => {
     res.json({
         success: true,
