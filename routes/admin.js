@@ -4,6 +4,7 @@ const admin = require('../models/admin')
 const attendance = require('../models/attendance')
 
 router.post('/auth', (req, res) => {
+    console.log(req.body)
     admin.find({ username: req.body.username, password: req.body.password }, (err, docs) => {
         if (err) {
             res.json({

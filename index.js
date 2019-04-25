@@ -7,7 +7,7 @@ const config = require('./env/config')
 const PORT = 3000 | process.env.PORT
 
 const app = express()
-app.use(cors())
+app.use(cors({origin: 'http://localhost:4200'}))
 app.use(bodyparser.json({limit: '50mb', extended: true}))
 app.use(bodyparser.urlencoded({ limit:'50mb', extended: true }))
 
